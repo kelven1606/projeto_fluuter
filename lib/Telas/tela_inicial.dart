@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:libras2/Telas/tela_cadastro.dart';
 import 'package:libras2/Telas/tela_login.dart';
 
 class TelaInicial extends StatefulWidget {
@@ -60,11 +61,15 @@ class _TelaInicialState extends State<TelaInicial> {
       padding: EdgeInsets.all(50),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         ElevatedButton(
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              backgroundColor: Colors.purple),
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => TelaDeLogin(),
-            ),
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => TelaDeLogin(),
+              ),
             );
           },
           child: Text(
@@ -77,8 +82,17 @@ class _TelaInicialState extends State<TelaInicial> {
         ),
         SizedBox(height: 20),
         ElevatedButton(
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
-          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              backgroundColor: Colors.purple),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => Cadastro(),
+              ),
+            );
+          },
           child: Text(
             'Cadastrar',
             style: TextStyle(
