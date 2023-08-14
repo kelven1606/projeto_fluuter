@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:libras2/Telas/tela_login.dart';
+import 'package:libras2/domain/Principal.dart';
 
 class TelaInicial extends StatefulWidget {
   const TelaInicial({Key? key}) : super(key: key);
@@ -62,9 +63,10 @@ class _TelaInicialState extends State<TelaInicial> {
         ElevatedButton(
           style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => TelaDeLogin(),
-            ),
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => TelaDeLogin(),
+              ),
             );
           },
           child: Text(
