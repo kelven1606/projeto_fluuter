@@ -10,7 +10,7 @@ class TelaPrincipalDao {
       imageNumero1: 'assets/image/numero-um.png',
       imagePraticando: "assets/image/praticando.png",
       imageSinal: "assets/image/sinal.png",
-      imageHand: 'assets/image/Hand.jpg',
+      imageHand: 'assets/image/Hand.png',
       label1: "Alfabeto",
       label2: "Números",
       label3: "Gestos",
@@ -19,7 +19,7 @@ class TelaPrincipalDao {
     )
   ];
   Future<List<Principal>> findAll() async {
-    await Future.delayed(Duration(seconds: 10));
+    await Future.delayed(Duration(seconds: 5));
     return listPrincipal;
   }
 }

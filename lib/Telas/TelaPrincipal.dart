@@ -30,6 +30,8 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
               future: futureLista,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
+                  /* Verifica se o snapshot tem dados disponíveis. 
+                Isso significa que o futureLista foi concluído e possui dados para exibir*/
                   var lista = snapshot.data!;
                   return ListView.builder(
                       shrinkWrap: true,
@@ -41,7 +43,9 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                         );
                       });
                 }
-                return const Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator(
+                  color: Colors.purple,
+                ));
               })),
     );
   }
