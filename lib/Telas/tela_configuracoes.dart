@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:libras2/Telas/tela_perfil.dart';
 
 class TelaConfiguracoes extends StatefulWidget {
   const TelaConfiguracoes({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
         appBar: buildAppBar(),
         body: ListView(
           children: [
-            buildConfiguracao(),
+            buildConfiguracao(context),
             buildConfiguracao2(),
             buildConfiguracao3(),
             buildConfiguracao4(),
@@ -48,22 +49,33 @@ buildAppBar() {
   );
 }
 
-buildConfiguracao() {
+buildConfiguracao(context) {
   return Container(
     color: Colors.white,
     margin: EdgeInsets.all(5),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(padding: const EdgeInsets.all(16.0), child: buildColumnText()),
+        Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: buildColumnText(context)),
       ],
     ),
   );
 }
 
-buildColumnText() {
+buildColumnText(context) {
   return GestureDetector(
-    onTap: () {},
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return Perfil();
+          },
+        ),
+      );
+    },
     child: Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
