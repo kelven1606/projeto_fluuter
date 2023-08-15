@@ -51,14 +51,13 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
               ),
               icon: Image.asset(p.imagealfabeto),
               onPressed: () {
-                InkWell(onTap: () {
+                
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => Alfabeto(),
                     ),
-                  );
-                });
+                );
               },
               label: Text(
                 p.label1,

@@ -12,6 +12,7 @@ class BuildAlfabeto extends StatefulWidget {
 }
 
 class _BuildAlfabetoState extends State<BuildAlfabeto> {
+  PacoteAlfabeto get a => widget.pacote;
   @override
   Widget build(BuildContext context) {
     return buildContainer();
@@ -24,8 +25,8 @@ class _BuildAlfabetoState extends State<BuildAlfabeto> {
       child: Column(
         children: [
           SizedBox(
-            child: Image.network(
-              widget.pacote.imagem,
+            child: Image.asset(
+              a.imagem,
             ),
           ),
         ],

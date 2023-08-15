@@ -4,7 +4,7 @@ class AlfabetoDAO {
   var listPacotes = const [
     PacoteAlfabeto(
         imagem:
-            'https://www.libras.com.br/ct__images/artigos/alfabeto-manual/alfabeto-manual.png'),
+            'assets/image/alfabeto2.png'),
   ];
 
   Future<List<PacoteAlfabeto>> findAll() async {
