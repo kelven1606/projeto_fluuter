@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Cadastro.dart';
 import 'tela_login.dart';
 
 
@@ -81,7 +82,11 @@ class _TelaInicialState extends State<TelaInicial> {
         SizedBox(height: 20),
         ElevatedButton(
           style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => Cadastro(),
+                ),
+                );
+          },
           child: Text(
             'Cadastrar',
             style: TextStyle(

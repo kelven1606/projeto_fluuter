@@ -34,7 +34,6 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                 Isso significa que o futureLista foi concluído e possui dados para exibir*/
                   var lista = snapshot.data!;
                   return ListView.builder(
-                      shrinkWrap: true,
                       ////physics: const NeverScrollableScrollPhysics(),
                       itemCount: lista.length,
                       itemBuilder: (context, index) {
