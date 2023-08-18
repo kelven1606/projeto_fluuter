@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Telas/TelaConfiguracoes.dart';
 import '../Telas/alfabeto.dart';
-import '../Telas/tela_configuracoes.dart';
 import '../Telas/tela_jogo.dart';
 import '../domain/Principal.dart';
 
@@ -51,12 +51,11 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
               ),
               icon: Image.asset(p.imagealfabeto),
               onPressed: () {
-                
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Alfabeto(),
-                    ),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Alfabeto(),
+                  ),
                 );
               },
               label: Text(
