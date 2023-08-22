@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:libras2/Telas/TelaPrincipal.dart';
-<<<<<<< HEAD
-import 'package:libras2/Telas/TelaConfiguracoes.dart';
-=======
-
 import 'TelaPrincipal2.dart';
->>>>>>> e9ce5add5f0e316c5da9fe9b7c7054124e21b969
 
 class TelaDeLogin extends StatefulWidget {
   const TelaDeLogin({super.key});
