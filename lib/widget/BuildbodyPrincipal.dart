@@ -118,27 +118,6 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
           SizedBox(
             height: 30,
           ),
-          ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.purple,
-              fixedSize: Size(190, 50),
-            ),
-            icon: Image.asset(p.imageEngrenagem),
-            label: Text(
-              p.label5,
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            onPressed: () {
-              print("oi");
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => TelaConfiguracoes(),
-                ),
-              );
-            },
-          ),
         ],
       ),
     );
