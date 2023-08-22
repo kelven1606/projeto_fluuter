@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Telas/TelaConfiguracoes.dart';
 import '../Telas/alfabeto.dart';
-import '../Telas/tela_configuracoes.dart';
 import '../Telas/tela_jogo.dart';
 import '../domain/Principal.dart';
 
@@ -51,12 +51,11 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
               ),
               icon: Image.asset(p.imagealfabeto),
               onPressed: () {
-                
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Alfabeto(),
-                    ),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Alfabeto(),
+                  ),
                 );
               },
               label: Text(
@@ -118,27 +117,6 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
           ),
           SizedBox(
             height: 30,
-          ),
-          ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.purple,
-              fixedSize: Size(190, 50),
-            ),
-            icon: Image.asset(p.imageEngrenagem),
-            label: Text(
-              p.label5,
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            onPressed: () {
-              print("oi");
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => TelaConfiguracoes(),
-                ),
-              );
-            },
           ),
         ],
       ),

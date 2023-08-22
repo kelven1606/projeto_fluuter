@@ -1,12 +1,10 @@
-import 'package:libras2/Telas/TelaPrincipal.dart';
-
 import '../domain/Principal.dart';
 
 class TelaPrincipalDao {
+  int cont = 0;
   List<Principal> listPrincipal = [
     Principal(
       imagealfabeto: "assets/image/alfabeto.png",
-      imageEngrenagem: "assets/image/engrenagem.png",
       imageNumero1: 'assets/image/numero-um.png',
       imagePraticando: "assets/image/praticando.png",
       imageSinal: "assets/image/sinal.png",
@@ -15,7 +13,6 @@ class TelaPrincipalDao {
       label2: "Números",
       label3: "Gestos",
       label4: "Praticando",
-      label5: "Configurações",
     )
   ];
   Future<List<Principal>> findAll() async {
