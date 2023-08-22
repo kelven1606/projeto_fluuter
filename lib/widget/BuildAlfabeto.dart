@@ -24,6 +24,7 @@ class _BuildAlfabetoState extends State<BuildAlfabeto> {
       padding: EdgeInsets.only(top: 20),
       child: Column(
         children: [
+          //space
           SizedBox(
             child: Image.asset(
               a.imagem,

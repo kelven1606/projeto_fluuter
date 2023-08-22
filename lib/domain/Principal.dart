@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-
 class Principal {
   final String imageHand;
   final String imagealfabeto;

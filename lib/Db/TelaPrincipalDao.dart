@@ -1,5 +1,3 @@
-import 'package:libras2/Telas/TelaPrincipal.dart';
-
 import '../domain/Principal.dart';
 
 class TelaPrincipalDao {
