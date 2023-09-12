@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:libras2/Telas/TelaPrincipal.dart';
+import 'package:libras2/Telas/Tela_Cadastro.dart';
 import 'TelaPrincipal2.dart';
 
 class TelaDeLogin extends StatefulWidget {
@@ -45,7 +45,7 @@ class _TelaPrinciaplState extends State<TelaDeLogin> {
                 //permitem que os usuários digitem texto em um aplicativo.
                 keyboardType: TextInputType
                     .emailAddress, //-> faz com que apareça o @ no teclado - pode ser de diversos tipos, como number, phone, text, emailAddress
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   enabledBorder: UnderlineInputBorder(
                     // muda a cor da barra de digitar
                     borderSide: BorderSide(
@@ -73,7 +73,7 @@ class _TelaPrinciaplState extends State<TelaDeLogin> {
               TextFormField(
                 keyboardType: TextInputType.text,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                         style: BorderStyle.solid, color: Colors.purple),
@@ -113,7 +113,11 @@ class _TelaPrinciaplState extends State<TelaDeLogin> {
               SizedBox(height: 10),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Tela_Cadastro(),
+                  ));
+                },
                 child: Text(
                   'Cadastrar',
                   style: TextStyle(color: Colors.white, fontSize: 20),

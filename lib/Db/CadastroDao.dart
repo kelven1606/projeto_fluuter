@@ -5,10 +5,8 @@ class CadastroDao {
   var listCadastro = [
     Cadastros(
       nome: "Nome",
-      sobrenome: "Sobrenome",
       email: "Email",
       senha1: "Crie uma senha",
-      senha2: "Confirme sua senha",
     ),
   ];
   Future<List<Cadastros>> findAll() async {

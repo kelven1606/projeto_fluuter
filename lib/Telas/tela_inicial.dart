@@ -1,11 +1,7 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Cadastro.dart';
+import 'Tela_Cadastro.dart';
 import 'tela_login.dart';
-
 
 class TelaInicial extends StatefulWidget {
   const TelaInicial({Key? key}) : super(key: key);
@@ -66,9 +62,10 @@ class _TelaInicialState extends State<TelaInicial> {
         ElevatedButton(
           style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => TelaDeLogin(),
-            ),
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => TelaDeLogin(),
+              ),
             );
           },
           child: Text(
@@ -83,9 +80,11 @@ class _TelaInicialState extends State<TelaInicial> {
         ElevatedButton(
           style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => Cadastro(),
-                ),
-                );
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => Tela_Cadastro(),
+              ),
+            );
           },
           child: Text(
             'Cadastrar',

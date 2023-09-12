@@ -4,14 +4,14 @@ import 'package:libras2/domain/Cadastros.dart';
 import '../Db/CadastroDao.dart';
 import 'TelaPrincipal.dart';
 
-class Cadastro extends StatefulWidget {
-  Cadastro({super.key});
+class Tela_Cadastro extends StatefulWidget {
+  Tela_Cadastro({super.key});
 
   @override
-  State<Cadastro> createState() => _CadastroState();
+  State<Tela_Cadastro> createState() => _Tela_CadastroState();
 }
 
-class _CadastroState extends State<Cadastro> {
+class _Tela_CadastroState extends State<Tela_Cadastro> {
   bool confirmeSenha = true;
   bool confirmeSenha1 = true;
 
@@ -32,7 +32,6 @@ class _CadastroState extends State<Cadastro> {
         backgroundColor: Colors.white,
         body: Container(
             padding: EdgeInsets.all(60),
-
             child: FutureBuilder<List<Cadastros>>(
               future: futureLista,
               builder: (context, snapshot) {
@@ -53,7 +52,7 @@ class _CadastroState extends State<Cadastro> {
       children: <Widget>[
         TextFormField(
           keyboardType: TextInputType.text,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
               enabledBorder: UnderlineInputBorder(
                 borderSide:
                     BorderSide(style: BorderStyle.solid, color: Colors.purple),
@@ -62,7 +61,7 @@ class _CadastroState extends State<Cadastro> {
                 borderSide:
                     BorderSide(style: BorderStyle.solid, color: Colors.purple),
               ),
-              labelText: cadastro.nome,
+              labelText: "Nome",
               prefixIcon: Padding(
                 child: Icon(Icons.person, color: Colors.purple),
                 padding: EdgeInsets.all(5),
@@ -75,7 +74,7 @@ class _CadastroState extends State<Cadastro> {
           style: TextStyle(fontSize: 20),
         ),
         SizedBox(height: 10),
-        TextFormField(
+        /*TextFormField(
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
               enabledBorder: UnderlineInputBorder(
@@ -97,25 +96,25 @@ class _CadastroState extends State<Cadastro> {
                 fontSize: 20,
               )),
           style: TextStyle(fontSize: 20),
-        ),
+        ),*/
         SizedBox(height: 10),
         TextFormField(
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-              enabledBorder: UnderlineInputBorder(
+              enabledBorder: const UnderlineInputBorder(
                 borderSide:
                     BorderSide(style: BorderStyle.solid, color: Colors.purple),
               ),
-              focusedBorder: UnderlineInputBorder(
+              focusedBorder: const UnderlineInputBorder(
                 borderSide:
                     BorderSide(style: BorderStyle.solid, color: Colors.purple),
               ),
               labelText: cadastro.email,
-              prefixIcon: Padding(
+              prefixIcon: const Padding(
                 child: Icon(Icons.email, color: Colors.purple),
                 padding: EdgeInsets.all(5),
               ),
-              labelStyle: TextStyle(
+              labelStyle: const TextStyle(
                 color: Colors.black38,
                 fontWeight: FontWeight.w400,
                 fontSize: 20,
@@ -151,7 +150,7 @@ class _CadastroState extends State<Cadastro> {
                 borderSide:
                     BorderSide(style: BorderStyle.solid, color: Colors.purple),
               ),
-              labelText: cadastro.senha1,
+              labelText: "Crie uma senha",
               prefixIcon: const Padding(
                 child: const Icon(Icons.key, color: Colors.purple),
                 padding: EdgeInsets.all(5),
@@ -192,7 +191,7 @@ class _CadastroState extends State<Cadastro> {
                 borderSide:
                     BorderSide(style: BorderStyle.solid, color: Colors.purple),
               ),
-              labelText: cadastro.senha2,
+              labelText: "Confirme sua senha",
               prefixIcon: const Padding(
                 child: const Icon(Icons.key, color: Colors.purple),
                 padding: EdgeInsets.all(5),
@@ -215,7 +214,7 @@ class _CadastroState extends State<Cadastro> {
               ),
             );
           },
-          child: Text(
+          child: const Text(
             'Cadastrar',
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
