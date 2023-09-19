@@ -19,25 +19,18 @@ class CadastroDao {
     Database db = await banco.banco();
     db.insert('CADASTRO_USUARIO', cadastros.toJson());
   }
-}
-    
-    
-     
-  
 
-  
-/*
- Future<bool> autenticar({required String user, required String password}) async {
-    DBHelper dbHelper = DBHelper();
-    Database db = await dbHelper.initDB();
+  Future<bool> autenticar (
+      {required String user, required String password}) async {
+    Banco banco = Banco();
+    Database db = await banco.banco();
 
-    String sql =
-        'SELECT * FROM USER '
-        'WHERE USERNAME = ? '
-        'AND PASSWORD = ?;';
+    String sql =  'SELECT * FROM CADASTRO_USUARIO '
+        'WHERE EMAIL = ? '
+        'AND SENHA = ?;';
 
     final resultSet = await db.rawQuery(sql, [user, password]);
 
     return resultSet.isNotEmpty;
   }
-}*/
+}

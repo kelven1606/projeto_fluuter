@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:libras2/Telas/Tela_Cadastro.dart';
+import '../Db/CadastroDao.dart';
 import 'TelaPrincipal2.dart';
 
 class TelaDeLogin extends StatefulWidget {
@@ -8,6 +9,8 @@ class TelaDeLogin extends StatefulWidget {
 }
 
 class _TelaPrinciaplState extends State<TelaDeLogin> {
+  TextEditingController userController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -68,6 +71,7 @@ class _TelaPrinciaplState extends State<TelaDeLogin> {
                   ),
                 ),
                 style: TextStyle(fontSize: 20),
+                controller: userController,
               ),
               SizedBox(height: 10),
               TextFormField(
@@ -94,32 +98,16 @@ class _TelaPrinciaplState extends State<TelaDeLogin> {
                   ),
                 ),
                 style: TextStyle(fontSize: 20),
+                controller: passwordController,
               ),
               SizedBox(height: 60),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => TelaPrincipal2(),
-                    ),
-                  );
+                  onPressed();
                 },
                 child: Text(
                   'Entrar',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => Tela_Cadastro(),
-                  ));
-                },
-                child: Text(
-                  'Cadastrar',
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
@@ -128,5 +116,29 @@ class _TelaPrinciaplState extends State<TelaDeLogin> {
         ),
       ),
     );
+  }
+
+  Future<void> onPressed() async {
+    String user = userController.text;
+    String password = passwordController.text;
+
+    bool result =
+        await CadastroDao().autenticar(user: user, password: password);
+    if (result) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return TelaPrincipal2();
+          },
+        ),
+      );
+    } else {
+      final snackBar = SnackBar(
+        content: Text('Usuário e/ou senha incorretos!'),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 }
