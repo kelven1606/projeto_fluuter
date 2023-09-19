@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:libras2/Db/CadastroDao.dart';
+import 'package:libras2/domain/Banco.dart';
 
 import 'Tela_Cadastro.dart';
 import 'tela_login.dart';
@@ -13,6 +15,8 @@ class TelaInicial extends StatefulWidget {
 class _TelaInicialState extends State<TelaInicial> {
   @override
   Widget build(BuildContext context) {
+    Banco().banco();
+    CadastroDao().findAll();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,

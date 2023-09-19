@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:libras2/Telas/tela_login.dart';
 import 'package:libras2/domain/Cadastros.dart';
 
 import '../Db/CadastroDao.dart';
@@ -14,8 +17,12 @@ class Tela_Cadastro extends StatefulWidget {
 class _Tela_CadastroState extends State<Tela_Cadastro> {
   bool confirmeSenha = true;
   bool confirmeSenha1 = true;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nomeController = TextEditingController();
+  TextEditingController senhaController = TextEditingController();
+  TextEditingController senha2Controller = TextEditingController();
 
-  Future<List<Cadastros>> futureLista = CadastroDao().findAll();
+  //Future<List<Cadastros>> futureLista = CadastroDao().findAll();
 
   @override
   Widget build(BuildContext context) {
@@ -30,24 +37,24 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
           ),
         ),
         backgroundColor: Colors.white,
-        body: Container(
-            padding: EdgeInsets.all(60),
-            child: FutureBuilder<List<Cadastros>>(
+        body: Container(padding: EdgeInsets.all(60), child: buildListView()
+            /*FutureBuilder<List<Cadastros>>(
               future: futureLista,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   List<Cadastros> lista = snapshot.data!;
-                  return buildListView(lista[0]);
+                  return (lista[0]);
                 }
 
                 return Center(child: CircularProgressIndicator());
               },
-            )),
+            )*/
+            ),
       ),
     );
   }
 
-  buildListView(Cadastros cadastro) {
+  buildListView() {
     return ListView(
       children: <Widget>[
         TextFormField(
@@ -72,6 +79,7 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
                 fontSize: 20,
               )),
           style: TextStyle(fontSize: 20),
+          controller: nomeController,
         ),
         SizedBox(height: 10),
         /*TextFormField(
@@ -101,25 +109,26 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
         TextFormField(
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-              enabledBorder: const UnderlineInputBorder(
+              enabledBorder: UnderlineInputBorder(
                 borderSide:
                     BorderSide(style: BorderStyle.solid, color: Colors.purple),
               ),
-              focusedBorder: const UnderlineInputBorder(
+              focusedBorder: UnderlineInputBorder(
                 borderSide:
                     BorderSide(style: BorderStyle.solid, color: Colors.purple),
               ),
-              labelText: cadastro.email,
-              prefixIcon: const Padding(
+              labelText: "email",
+              prefixIcon: Padding(
                 child: Icon(Icons.email, color: Colors.purple),
                 padding: EdgeInsets.all(5),
               ),
-              labelStyle: const TextStyle(
+              labelStyle: TextStyle(
                 color: Colors.black38,
                 fontWeight: FontWeight.w400,
                 fontSize: 20,
               )),
           style: TextStyle(fontSize: 20),
+          controller: emailController,
         ),
         SizedBox(height: 10),
         TextFormField(
@@ -161,6 +170,7 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
                 fontSize: 20,
               )),
           style: TextStyle(fontSize: 20),
+          controller: senhaController,
         ),
         SizedBox(height: 10),
         TextFormField(
@@ -202,17 +212,14 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
                 fontSize: 20,
               )),
           style: TextStyle(fontSize: 20),
+          controller: senha2Controller,
         ),
         SizedBox(height: 60),
         ElevatedButton(
           style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
           //style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),//
           onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => TelaPrincipal(),
-              ),
-            );
+            onpressed();
           },
           child: const Text(
             'Cadastrar',
@@ -221,5 +228,24 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
         ),
       ],
     );
+  }
+
+  Future<void> onpressed() async {
+    String email = emailController.text;
+    String nome = nomeController.text;
+    String senha = senhaController.text;
+    String senha2 = senhaController.text;
+
+    if (senha == senha2) {
+      Cadastros cadastros = Cadastros(nome: nome, email: email, senha: senha);
+      CadastroDao().salvarUsuario(cadastros: cadastros);
+      Navigator.pop(context);
+    } else {
+      final snackBar = SnackBar(
+        content: Text('As senhas digitadas são divergentes!'),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 }
