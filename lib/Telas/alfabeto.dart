@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../Db/AlfabetoDAO.dart';
 import '../domain/PacoteAlfabeto.dart';
@@ -17,12 +17,12 @@ class _AlfabetoState extends State<Alfabeto> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Alfabeto"),
-          backgroundColor: Colors.purple,
-        ),
-        body: FutureBuilder<List<PacoteAlfabeto>>(
+        child: Scaffold(
+      appBar: AppBar(
+        title: Text("Alfabeto"),
+        backgroundColor: Colors.purple,
+      ),
+      body: FutureBuilder<List<PacoteAlfabeto>>(
           future: futureLista,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -31,19 +31,28 @@ class _AlfabetoState extends State<Alfabeto> {
               var lista = snapshot.data!;
               /*Se houver dados no snapshot, a lista de 
                   objetos PacoteAlfabeto é atribuída à variável lista*/
-              return ListView.builder(
-                  /* usado para construir a lista de pacotes de
+              return GridView.builder(
+                gridDelegate:const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 500,
+                  mainAxisExtent: 700,
+                  childAspectRatio: 3/2,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 60,                                   
+                ),
+                physics: NeverScrollableScrollPhysics(),
+                /* usado para construir a lista de pacotes de
                    alfabeto com base nos dados disponíveis.*/
-                  shrinkWrap: true,
-                  /*ListView encolha para se ajustar ao tamanho dos itens na lista interna.*/
-                  ////physics: const NeverScrollableScrollPhysics(),
-                  itemCount: lista.length,
-                  /*Define o número de itens na lista com base no tamanho da lista de pacotes de alfabeto.*/
-                  itemBuilder: (context, index) {
-                    return BuildAlfabeto(
-                      pacote: lista[index],
-                    );
-                  });
+                // shrinkWrap: true,
+                /*ListView encolha para se ajustar ao tamanho dos itens na lista interna.*/
+                itemCount: lista.length,
+                /*Define o número de itens na lista com base no tamanho da lista de pacotes de alfabeto.*/
+                itemBuilder: (context, index) {
+                  /*define uma função que constrói cada item da lista.*/
+                  return BuildAlfabeto(
+                    pacote: lista[index],
+                  );
+                },
+              );
             }
             return const Center(
                 child: CircularProgressIndicator(

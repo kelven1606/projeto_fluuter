@@ -69,7 +69,33 @@ flutter:
     - assets/image/praticando.png
     - assets/image/Hand.png
     - assets/image/alfabeto2.png
-
+    - assets/image/A.png
+    - assets/image/B.png
+    - assets/image/C.png
+    - assets/image/D.png
+    - assets/image/E.png
+    - assets/image/F.png
+    - assets/image/G.png
+    - assets/image/H.png
+    - assets/image/I.png
+    - assets/image/J.png
+    - assets/image/K.png
+    - assets/image/L.png
+    - assets/image/M.png
+    - assets/image/N.png
+    - assets/image/O.png
+    - assets/image/P.png
+    - assets/image/Q.png
+    - assets/image/R.png
+    - assets/image/S.png
+    - assets/image/T.png
+    - assets/image/U.png
+    - assets/image/V.png
+    - assets/image/W.png
+    - assets/image/X.png
+    - assets/image/Y.png
+    - assets/image/Z.png
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

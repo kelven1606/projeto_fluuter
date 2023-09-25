@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:libras2/Telas/jogoalfabeto.dart';
 
 class TelaJogo extends StatefulWidget {
   const TelaJogo({super.key});
@@ -19,7 +20,11 @@ class _TelaJogoState extends State<TelaJogo> {
             crossAxisSpacing: 2,*/
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => jogoalfabeto(),
+                  ));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple,
                   shape: CircleBorder(),

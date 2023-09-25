@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:libras2/Db/CadastroDao.dart';
-import 'package:libras2/domain/Banco.dart';
+import 'package:libras2/Db/Banco.dart';
 
 import 'Tela_Cadastro.dart';
 import 'tela_login.dart';

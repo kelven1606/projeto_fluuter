@@ -1,4 +1,4 @@
-import 'package:libras2/domain/Banco.dart';
+import 'package:libras2/Db/Banco.dart';
 import 'package:sqflite/sqlite_api.dart';
 
 import '../domain/Cadastros.dart';

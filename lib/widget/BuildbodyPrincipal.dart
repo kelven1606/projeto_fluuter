@@ -26,7 +26,7 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
         children: [
           Center(),
           Container(
-            padding: EdgeInsets.only(top: 5),
+            padding: EdgeInsets.only(top: 20),
             child: SizedBox(
               height: 80,
               width: 75,

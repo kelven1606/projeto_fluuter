@@ -16,7 +16,7 @@ class TelaPrincipalDao {
     )
   ];
   Future<List<Principal>> findAll() async {
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 1));
     return listPrincipal;
   }
 }
