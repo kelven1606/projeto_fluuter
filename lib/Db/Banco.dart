@@ -32,6 +32,11 @@ class Banco {
       String sql =
           "INSERT INTO CADASTRO_USUARIO (id,NOME, EMAIL, SENHA) VALUES (1, 'joao','joao@gmail.com', '123456');";
       await db.execute(sql);
+
+      /*sql =
+          'CREATE TABLE JOGO_ALFABETO(ID INTEGER PRIMARY KEY, PERGUNTA VARCHAR(200), RESPOSTA1 VARCHAR(200),RESPOSTA2 VARCHAR(200),RESPOSTA3 VARCHAR(200),RESPOSTA4 VARCHAR(200),RESPOSTACERTA VARCHAR(200),IMAGEM VARCHAR(200));';
+      await db.execute(sql);
+      */
     }
   }
 }

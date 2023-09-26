@@ -95,6 +95,33 @@ flutter:
     - assets/image/X.png
     - assets/image/Y.png
     - assets/image/Z.png
+    - assets/image/a - copia.png
+    - assets/image/b - copia.png
+    - assets/image/c - Copia.png
+    - assets/image/d - copia.png
+    - assets/image/e - copia.png
+    - assets/image/f - copia.png
+    - assets/image/g - copia.png
+    - assets/image/h - copia.png
+    - assets/image/i - copia.png
+    - assets/image/j - copia.png
+    - assets/image/k - copia.png
+    - assets/image/l - copia.png
+    - assets/image/m - copia.png
+    - assets/image/n - copia.png
+    - assets/image/o - copia.png
+    - assets/image/p - copia.png
+    - assets/image/q - copia.png
+    - assets/image/r - copia.png
+    - assets/image/s - copia.png
+    - assets/image/t - copia.png
+    - assets/image/u - copia.png
+    - assets/image/v - copia.png
+    - assets/image/w - copia.png
+    - assets/image/x - copia.png
+    - assets/image/y - copia.png
+    - assets/image/z - copia.png
+    - assets/image/maca.jpg
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
