@@ -235,17 +235,23 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
     String nome = nomeController.text;
     String senha = senhaController.text;
     String senha2 = senhaController.text;
+    if (email != '' && nome != '' && senha != '' && senha2 != '') {
+      if (senha == senha2) {
+        Cadastros cadastros = Cadastros(nome: nome, email: email, senha: senha);
+        CadastroDao().salvarUsuario(cadastros: cadastros);
+        Navigator.pop(context);
+      } else {
+        final snackBar = SnackBar(
+          content: Text('As senhas digitadas são divergentes!'),
+        );
 
-    if (senha == senha2) {
-      Cadastros cadastros = Cadastros(nome: nome, email: email, senha: senha);
-      CadastroDao().salvarUsuario(cadastros: cadastros);
-      Navigator.pop(context);
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
     } else {
       final snackBar = SnackBar(
-        content: Text('As senhas digitadas são divergentes!'),
+        content: Text('Dados Incompletos!'),
       );
-
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      print("dados incompletos");
     }
   }
 }

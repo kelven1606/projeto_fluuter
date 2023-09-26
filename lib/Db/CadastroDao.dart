@@ -20,12 +20,12 @@ class CadastroDao {
     db.insert('CADASTRO_USUARIO', cadastros.toJson());
   }
 
-  Future<bool> autenticar (
+  Future<bool> autenticar(
       {required String user, required String password}) async {
     Banco banco = Banco();
     Database db = await banco.banco();
 
-    String sql =  'SELECT * FROM CADASTRO_USUARIO '
+    String sql = 'SELECT * FROM CADASTRO_USUARIO '
         'WHERE EMAIL = ? '
         'AND SENHA = ?;';
 
@@ -33,4 +33,17 @@ class CadastroDao {
 
     return resultSet.isNotEmpty;
   }
+
+  /*Future<bool> ExcluirUsuario(
+     int num ) async {
+    Banco banco = Banco();
+    Database db = await banco.banco();
+
+    String sql = 'Delete FROM CADASTRO_USUARIO '
+        'WHERE Id = ?; ';
+
+    final resultSet = await db.rawQuery(sql, [num]);
+
+    return resultSet.isNotEmpty;
+  }*/
 }

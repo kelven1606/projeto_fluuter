@@ -16,7 +16,7 @@ class _TelaInicialState extends State<TelaInicial> {
   @override
   Widget build(BuildContext context) {
     Banco().banco();
-    CadastroDao().findAll();
+    //CadastroDao().findAll();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
