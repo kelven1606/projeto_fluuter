@@ -18,9 +18,7 @@ class _BuildAlfabetoState extends State<BuildAlfabeto> {
   }
 
   buildContainer() {
-    return GridView.count(
-      crossAxisCount: 2,
-      children: [
+    return GridView.count(crossAxisCount: 2, children: [
       Container(
         child: Image.asset(
           widget.pacote.imagem,
@@ -156,7 +154,9 @@ class _BuildAlfabetoState extends State<BuildAlfabeto> {
           widget.pacote.imagem25,
         ),
       ),
-      ]
-    );
+      Container(
+        color: Colors.white70,
+      ),
+    ]);
   }
 }
