@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:libras2/Db/CadastroDao.dart';
 import 'package:libras2/Db/Banco.dart';
+import 'package:libras2/Db/JogoalfabetoDAO.dart';
+import 'package:libras2/domain/Imagens.dart';
+import 'package:libras2/domain/jogoalfabetoJson.dart';
 
 import 'Tela_Cadastro.dart';
 import 'tela_login.dart';
@@ -16,7 +19,9 @@ class _TelaInicialState extends State<TelaInicial> {
   @override
   Widget build(BuildContext context) {
     Banco().banco();
-    //CadastroDao().findAll();
+    JogoalfabetoDAO().findall();
+    //SalvarQuestoes();
+    CadastroDao().findAll();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -66,6 +71,7 @@ class _TelaInicialState extends State<TelaInicial> {
         ElevatedButton(
           style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
           onPressed: () {
+
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => TelaDeLogin(),

@@ -1,24 +1,37 @@
 import 'package:libras2/Db/Banco.dart';
+import 'package:libras2/domain/jogoalfabetoJson.dart';
 import 'package:sqflite/sqlite_api.dart';
 
 import '../domain/Cadastros.dart';
 
-class CadastroDao {
-  findAll() async {
+class JogoalfabetoDAO {
+  findall() async {
     Banco bd = Banco();
     Database db = await bd.banco();
 
-    String sql = 'SELECT * FROM CADASTRO_USUARIO;';
+    String sql = 'SELECT * FROM JOGO_ALFABETO;';
     final resultSet = await db.rawQuery(sql);
 
     print('$resultSet');
   }
 
-  salvarUsuario({required Cadastros cadastros}) async {
+  Future<List<jogoalfabetoJson>> alfabeto() async {
     Banco banco = Banco();
-    Database db = await banco.banco();
-    db.insert('CADASTRO_USUARIO', cadastros.toJson());
+    Database db = await Banco().banco();
+
+    String sql = 'SELECT * FROM JOGO_ALFABETO;';
+    final resultSet = await db.rawQuery(
+      sql,
+    );
+
+    List<jogoalfabetoJson> list = [];
+    for (var json in resultSet) {
+      jogoalfabetoJson pacote = jogoalfabetoJson.fromJson(json);
+      list.add(pacote);
+    }
+    return list;
   }
+}
 
   /*Future<bool> ExcluirUsuario(
      int num ) async {
@@ -32,4 +45,4 @@ class CadastroDao {
 
     return resultSet.isNotEmpty;
   }*/
-}
+

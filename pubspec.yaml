@@ -122,6 +122,10 @@ flutter:
     - assets/image/y - copia.png
     - assets/image/z - copia.png
     - assets/image/maca.jpg
+    - assets/image/cachorro.jpg
+    - assets/image/banana.jpg
+    - assets/image/gato.jpg
+    - assets/image/pera.jpg
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

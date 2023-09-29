@@ -17,24 +17,24 @@ class jogoalfabetoJson {
       required this.imagem});
 
   jogoalfabetoJson.fromJson(Map<String, dynamic> json) {
-    pergunta = json['pergunta'];
-    resposta1 = json['resposta1'];
-    resposta2 = json['resposta2'];
-    resposta3 = json['resposta3'];
-    resposta4 = json['resposta4'];
-    respostacerta = json['respostacerta'];
-    imagem = json['imagem'];
+    pergunta = json['PERGUNTA'];
+    resposta1 = json['RESPOSTA1'];
+    resposta2 = json['RESPOSTA2'];
+    resposta3 = json['RESPOSTA3'];
+    resposta4 = json['RESPOSTA4'];
+    respostacerta = json['RESPOSTACERTA'];
+    imagem = json['IMAGEM'];
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic>toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['pergunta'] = pergunta;
-    data['resposta1'] = resposta1;
-    data['resposta2'] = resposta2;
-    data['resposta3'] = resposta3;
-    data['resposta4'] = resposta4;
-    data['respostacerta'] = respostacerta;
-    data['imagem'] = imagem;
+    data['PERGUNTA'] = this.pergunta;
+    data['RESPOSTA1'] = this.resposta1;
+    data['RESPOSTA2'] = this.resposta2;
+    data['RESPOSTA3'] = this.resposta3;
+    data['RESPOSTA4'] = this.resposta4;
+    data['RESPOSTACERTA'] = this.respostacerta;
+    data['IMAGEM'] = this.imagem;
 
     return data;
   }

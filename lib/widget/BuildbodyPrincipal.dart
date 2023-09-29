@@ -6,10 +6,9 @@ import '../domain/Principal.dart';
 
 class BuildBodyPrincipal extends StatefulWidget {
   final Principal principal;
-  const BuildBodyPrincipal({Key? key, required this.principal})
-      : super(key: key);
-
+  const BuildBodyPrincipal({Key? key, required this.principal}) : super(key: key);
   @override
+
   State<BuildBodyPrincipal> createState() => _BuildBodyPrincipalState();
 }
 

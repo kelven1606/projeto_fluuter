@@ -234,7 +234,7 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
     String email = emailController.text;
     String nome = nomeController.text;
     String senha = senhaController.text;
-    String senha2 = senhaController.text;
+    String senha2 = senha2Controller.text;
     if (email != '' && nome != '' && senha != '' && senha2 != '') {
       if (senha == senha2) {
         Cadastros cadastros = Cadastros(nome: nome, email: email, senha: senha);
@@ -248,9 +248,10 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     } else {
-      final snackBar = SnackBar(
+      final snackBar2 = SnackBar(
         content: Text('Dados Incompletos!'),
       );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar2);
       print("dados incompletos");
     }
   }
