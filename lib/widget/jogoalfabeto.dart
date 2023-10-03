@@ -7,6 +7,8 @@ class jogoalfabeto extends StatefulWidget {
 
   @override
   State<jogoalfabeto> createState() => _jogoalfabetoState();
+
+  jogoalfabeto.tal(this.jogo) {}
 }
 
 class _jogoalfabetoState extends State<jogoalfabeto> {
@@ -28,107 +30,103 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
 
   buildjogoalfabeto() {
     return Container(
-        child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                "Pergunta $cont de 10",
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  "Pergunta $cont de 10",
+                ),
               ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Text(j.pergunta),
-        SizedBox(
-          height: 20,
-        ),
-        Container(
-          child: Image.asset(j.imagem, cacheHeight: 120, cacheWidth: 120),
-        ),
-        Row(
-          children: [
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("A"),
-              style: ElevatedButton.styleFrom(
-                shape: CircleBorder(),
-                padding: EdgeInsetsDirectional.only(start: 0),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(j.pergunta),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            child: Image.asset(j.imagem, cacheHeight: 120, cacheWidth: 120),
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("A"),
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  padding: EdgeInsetsDirectional.only(start: 0),
+                ),
               ),
-            ),
-            Container(
-              child:
-                  Image.asset(j.resposta1, cacheHeight: 100, cacheWidth: 100),
-            )
-          ],
-        ),
-        Row(
-          children: [
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("B"),
-              style: ElevatedButton.styleFrom(
-                shape: CircleBorder(),
-                padding: EdgeInsetsDirectional.only(start: 0),
+              Container(
+                child:
+                    Image.asset(j.resposta1, cacheHeight: 100, cacheWidth: 100),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("B"),
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  padding: EdgeInsetsDirectional.only(start: 0),
+                ),
               ),
-            ),
-            Container(
-              child:
-                  Image.asset(j.resposta2, cacheHeight: 100, cacheWidth: 100),
-            )
-          ],
-        ),
-        Row(
-          children: [
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("C"),
-              style: ElevatedButton.styleFrom(
-                shape: CircleBorder(),
-                padding: EdgeInsetsDirectional.only(start: 0),
+              Container(
+                child:
+                    Image.asset(j.resposta2, cacheHeight: 100, cacheWidth: 100),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("C"),
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  padding: EdgeInsetsDirectional.only(start: 0),
+                ),
               ),
-            ),
-            Container(
-              child:
-                  Image.asset(j.resposta3, cacheHeight: 100, cacheWidth: 100),
-            )
-          ],
-        ),
-        Row(
-          children: [
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("D"),
-              style: ElevatedButton.styleFrom(
-                shape: CircleBorder(),
-                padding: EdgeInsetsDirectional.only(start: 0),
+              Container(
+                child:
+                    Image.asset(j.resposta3, cacheHeight: 100, cacheWidth: 100),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("D"),
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  padding: EdgeInsetsDirectional.only(start: 0),
+                ),
               ),
-            ),
-            Container(
-              child:
-                  Image.asset(j.resposta4, cacheHeight: 100, cacheWidth: 100),
-            )
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: ElevatedButton(
-                  onPressed: () {
-                    incrementcont();
-                  },
-                  child: Text("próxima")),
-            ),
-          ],
-        ),
-      ],
-    ));
+              Container(
+                child:
+                    Image.asset(j.resposta4, cacheHeight: 100, cacheWidth: 100),
+              )
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 5),
+            child: ElevatedButton(
+                onPressed: () {
+                  incrementcont();
+                },
+                child: Text("próxima")),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -14,10 +14,11 @@ class Telajogoalfabeto extends StatefulWidget {
 }
 
 class _TelajogoalfabetoState extends State<Telajogoalfabeto> {
-  int cont = 1;
-  Future<List<jogoalfabetoJson>> futureLista = JogoalfabetoDAO().alfabeto(id: 1);
   @override
   Widget build(BuildContext context) {
+    int cont = 1;
+    Future<List<jogoalfabetoJson>> futureLista =
+        JogoalfabetoDAO().alfabeto(id: cont);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
@@ -44,5 +45,4 @@ class _TelajogoalfabetoState extends State<Telajogoalfabeto> {
       ),
     );
   }
-
 }

@@ -30,6 +30,11 @@ class imagens {
   String imageCachorro = 'assets/image/cachorro.jpg';
   String imageBanana = 'assets/image/banana.jpg';
   String imagePera = 'assets/image/pera.jpg';
+  String imageKiwi = 'assets/image/kiwi.jpg';
+  String imageformiga = 'assets/image/formiga.jpg';
+  String imageUva = 'assets/image/uva.png';
+  String imageLeao = 'assets/image/leao.jpg';
+  String imageborboleta = 'assets/image/borboleta.jpg';
   String pergunta1 = 'Qual a primeira letra da fruta da imagem abaixo?';
   String pergunta2 = 'Qual a primeira letra do nome do animal abaixo?';
 }

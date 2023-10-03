@@ -19,8 +19,8 @@ class JogoalfabetoDAO {
     Banco banco = Banco();
     Database db = await Banco().banco();
 
-    String sql = 'SELECT * FROM JOGO_ALFABETO WHERE ID = $id;';
-    final resultSet = await db.rawQuery(sql);
+    String sql = 'SELECT * FROM JOGO_ALFABETO WHERE ID = ?;';
+    final resultSet = await db.rawQuery(sql, [id]);
 
     List<jogoalfabetoJson> list = [];
     for (var json in resultSet) {
