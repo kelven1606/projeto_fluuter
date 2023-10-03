@@ -31,7 +31,7 @@ class Banco {
         'CREATE TABLE JOGO_ALFABETO(ID INTEGER PRIMARY KEY, PERGUNTA VARCHAR(200), RESPOSTA1 VARCHAR(200),RESPOSTA2 VARCHAR(200),RESPOSTA3 VARCHAR(200),RESPOSTA4 VARCHAR(200),RESPOSTACERTA VARCHAR(200),IMAGEM VARCHAR(200));';
     await db.execute(sql);
 
-    sql =
+    /*sql =
         "INSERT INTO JOGO_ALFABETO(ID,PERGUNTA,RESPOSTA1,RESPOSTA2,RESPOSTA3,RESPOSTA4,RESPOSTACERTA,IMAGEM) VALUES (1,'${i.pergunta1}','${i.imagemA}','${i.imagemF}','${i.imagemM}','${i.imagemD}','${i.imagemM}','${i.imagemMaca}')";
     await db.execute(sql);
     sql =
@@ -45,7 +45,7 @@ class Banco {
     await db.execute(sql);
     sql =
         "INSERT INTO JOGO_ALFABETO(ID,PERGUNTA,RESPOSTA1,RESPOSTA2,RESPOSTA3,RESPOSTA4,RESPOSTACERTA,IMAGEM) VALUES (5,'${i.pergunta1}','${i.imagemR}','${i.imagemP}','${i.imagemK}','${i.imagemL}','${i.imagemP}','${i.imagePera}')";
-    await db.execute(sql);
+    await db.execute(sql);*/
 
     
 

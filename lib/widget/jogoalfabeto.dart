@@ -17,6 +17,15 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
     return buildjogoalfabeto();
   }
 
+  int incrementcont() {
+    setState(() {
+      if (cont < 10) {
+        cont++;
+      }
+    });
+    return cont;
+  }
+
   buildjogoalfabeto() {
     return Container(
         child: Column(
@@ -24,8 +33,11 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text(
-              "Pergunta $cont de 10",
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "Pergunta $cont de 10",
+              ),
             ),
           ],
         ),
@@ -50,8 +62,8 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
               ),
             ),
             Container(
-              child: Image.asset(j.resposta1,
-                  cacheHeight: 100, cacheWidth: 100),
+              child:
+                  Image.asset(j.resposta1, cacheHeight: 100, cacheWidth: 100),
             )
           ],
         ),
@@ -66,8 +78,8 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
               ),
             ),
             Container(
-              child: Image.asset(j.resposta2,
-                  cacheHeight: 100, cacheWidth: 100),
+              child:
+                  Image.asset(j.resposta2, cacheHeight: 100, cacheWidth: 100),
             )
           ],
         ),
@@ -82,8 +94,8 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
               ),
             ),
             Container(
-              child: Image.asset(j.resposta3,
-                  cacheHeight: 100, cacheWidth: 100),
+              child:
+                  Image.asset(j.resposta3, cacheHeight: 100, cacheWidth: 100),
             )
           ],
         ),
@@ -98,25 +110,25 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
               ),
             ),
             Container(
-              child: Image.asset(j.resposta4,
-                  cacheHeight: 100, cacheWidth: 100),
+              child:
+                  Image.asset(j.resposta4, cacheHeight: 100, cacheWidth: 100),
             )
           ],
         ),
-
-        ElevatedButton(
-            onPressed: () {
-              incrementcont();
-            },
-            child: Text("próxima"))
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: ElevatedButton(
+                  onPressed: () {
+                    incrementcont();
+                  },
+                  child: Text("próxima")),
+            ),
+          ],
+        ),
       ],
     ));
-  }
-
-  int incrementcont() {
-    setState(() {
-      if (cont < 10) cont++;
-    });
-    return cont;
   }
 }

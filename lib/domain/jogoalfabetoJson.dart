@@ -1,4 +1,5 @@
 class jogoalfabetoJson {
+  late int id;
   late String pergunta;
   late String resposta1;
   late String resposta2;
@@ -16,6 +17,8 @@ class jogoalfabetoJson {
       required this.respostacerta,
       required this.imagem});
 
+  jogoalfabetoJson.id({required this.id});
+
   jogoalfabetoJson.fromJson(Map<String, dynamic> json) {
     pergunta = json['PERGUNTA'];
     resposta1 = json['RESPOSTA1'];
@@ -26,7 +29,7 @@ class jogoalfabetoJson {
     imagem = json['IMAGEM'];
   }
 
-  Map<String, dynamic>toJson() {
+  Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['PERGUNTA'] = this.pergunta;
     data['RESPOSTA1'] = this.resposta1;
@@ -36,6 +39,12 @@ class jogoalfabetoJson {
     data['RESPOSTACERTA'] = this.respostacerta;
     data['IMAGEM'] = this.imagem;
 
+    return data;
+  }
+
+  Map<String, dynamic> toJsonId() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['ID'] = id;
     return data;
   }
 }

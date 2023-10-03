@@ -14,7 +14,8 @@ class Telajogoalfabeto extends StatefulWidget {
 }
 
 class _TelajogoalfabetoState extends State<Telajogoalfabeto> {
-  Future<List<jogoalfabetoJson>> futureLista = JogoalfabetoDAO().alfabeto();
+  int cont = 1;
+  Future<List<jogoalfabetoJson>> futureLista = JogoalfabetoDAO().alfabeto(id: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,6 @@ class _TelajogoalfabetoState extends State<Telajogoalfabeto> {
       body: FutureBuilder<List<jogoalfabetoJson>>(
         future: futureLista,
         builder: (context, snapshot) {
-          
           if (snapshot.hasData) {
             var lista = snapshot.data!;
             return ListView.builder(
@@ -44,4 +44,5 @@ class _TelajogoalfabetoState extends State<Telajogoalfabeto> {
       ),
     );
   }
+
 }

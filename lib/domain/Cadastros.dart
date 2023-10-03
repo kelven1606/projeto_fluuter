@@ -18,4 +18,5 @@ class Cadastros {
     data['senha'] = senha;
     return data;
   }
+
 }
