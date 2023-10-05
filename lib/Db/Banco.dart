@@ -8,7 +8,7 @@ import '../domain/Imagens.dart';
 class Banco {
   banco() async {
     final CaminhoBanco = await getDatabasesPath();
-    final localbanco = join(CaminhoBanco, "Banco_libras9.db");
+    final localbanco = join(CaminhoBanco, "Banco_libras10.db");
 
     Database db = await openDatabase(
       localbanco,
@@ -30,6 +30,14 @@ class Banco {
 
     sql =
         'CREATE TABLE JOGO_ALFABETO(ID INTEGER PRIMARY KEY, PERGUNTA VARCHAR(200), RESPOSTA1 VARCHAR(200),RESPOSTA2 VARCHAR(200),RESPOSTA3 VARCHAR(200),RESPOSTA4 VARCHAR(200),RESPOSTACERTA VARCHAR(200),IMAGEM VARCHAR(200));';
+    await db.execute(sql);
+
+    sql =
+        'CREATE TABLE PERFIL(id INTEGER PRIMARY KEY, nome_usuario varchar(100), biografia varchar(200), imagem varchar(200));';
+    await db.execute(sql);
+
+    sql =
+        "INSERT INTO PERFIL (id, nome_usuario, biografia, imagem) VALUES (1, 'Clara Dailly', 'Estudante', 'https://crn10.org.br/novo/wp-content/uploads/2021/10/perfil-300x300-5.jpg');";
     await db.execute(sql);
 
     sql =
