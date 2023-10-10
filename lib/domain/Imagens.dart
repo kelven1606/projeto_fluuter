@@ -37,4 +37,5 @@ class imagens {
   String imageborboleta = 'assets/image/borboleta.jpg';
   String pergunta1 = 'Qual a primeira letra da fruta da imagem abaixo?';
   String pergunta2 = 'Qual a primeira letra do nome do animal abaixo?';
+  String imageperfil = 'assets/image/perfil.jpg';
 }

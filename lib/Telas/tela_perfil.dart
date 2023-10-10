@@ -8,16 +8,16 @@ import 'package:libras2/widget/buildTelaPerfil.dart';
 import '../Db/PerfisDao.dart';
 import '../domain/Perfis.dart';
 
-class Perfil extends StatefulWidget {
-  Perfil({super.key});
+class tela_perfil extends StatefulWidget {
+  tela_perfil({super.key});
 
 
   @override
-  State<Perfil> createState() => _PerfilState();
+  State<tela_perfil> createState() => _tela_perfilState();
 }
 
 
-class _PerfilState extends State<Perfil> {
+class _tela_perfilState extends State<tela_perfil> {
   Future<List<Perfis>> futureLista = PerfisDao().findAll();
 
 

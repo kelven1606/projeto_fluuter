@@ -43,11 +43,11 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Text(j.pergunta),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(

@@ -71,7 +71,7 @@ buildColumnText(context) {
         context,
         MaterialPageRoute(
           builder: (context) {
-            return Perfil();
+            return tela_perfil();
           },
         ),
       );

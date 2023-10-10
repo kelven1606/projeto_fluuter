@@ -17,12 +17,12 @@ class _buildTelaPerfilState extends State<buildTelaPerfil> {
   Perfis get p => widget.perfil;
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return buildListView();
   }
 
   buildListView() {
-    return ListView(
-      children: <Widget>[
+    return Container(
+      child:
         Container(
           color: Colors.white,
           margin: EdgeInsets.all(5),
@@ -35,7 +35,7 @@ class _buildTelaPerfilState extends State<buildTelaPerfil> {
                 width: 150,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image.network(
+                  child: Image.asset(
                     p.imagem,
                     fit: BoxFit.cover,
                   ),
@@ -74,7 +74,6 @@ class _buildTelaPerfilState extends State<buildTelaPerfil> {
             ],
           ),
         ),
-      ],
     );
   }
 }

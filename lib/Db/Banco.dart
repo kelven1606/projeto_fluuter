@@ -37,7 +37,7 @@ class Banco {
     await db.execute(sql);
 
     sql =
-        "INSERT INTO PERFIL (id, nome_usuario, biografia, imagem) VALUES (1, 'Clara Dailly', 'Estudante', 'https://crn10.org.br/novo/wp-content/uploads/2021/10/perfil-300x300-5.jpg');";
+        "INSERT INTO PERFIL (id, nome_usuario, biografia, imagem) VALUES (1, 'Clara Dailly', 'Estudante', '${i.imageperfil}');";
     await db.execute(sql);
 
     sql =

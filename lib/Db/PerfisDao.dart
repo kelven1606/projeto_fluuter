@@ -13,7 +13,7 @@ class PerfisDao {
     Database db = await banco.banco();
 
 
-    String sql = 'SELECT * FROM TABELA;';
+    String sql = 'SELECT * FROM PERFIL;';
     final resultSet = await db.rawQuery(sql);
 
 
