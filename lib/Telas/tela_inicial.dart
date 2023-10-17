@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:libras2/Db/CadastroDao.dart';
 import 'package:libras2/Db/Banco.dart';
 import 'package:libras2/Db/JogoalfabetoDAO.dart';
+import 'package:libras2/Telas/TelaPrincipal2.dart';
 import 'package:libras2/domain/Imagens.dart';
 import 'package:libras2/domain/jogoalfabetoJson.dart';
 
+import '../Db/Shared_prefs.dart';
 import 'Tela_Cadastro.dart';
 import 'tela_login.dart';
 
@@ -16,19 +18,44 @@ class TelaInicial extends StatefulWidget {
 }
 
 class _TelaInicialState extends State<TelaInicial> {
+  checkUserStatus() async {
+    // Verificar se o User já fez login
+    bool isLogged = await SharedPrefs().getUser();
+    await Future.delayed(const Duration(seconds: 5));
+
+    if (isLogged) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return const TelaPrincipal2();
+          },
+        ),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return const TelaDeLogin();
+          },
+        ),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkUserStatus();
+  }
+
   @override
   Widget build(BuildContext context) {
-    Banco().banco();
-    JogoalfabetoDAO().findall();
-    //SalvarQuestoes();
-    CadastroDao().findAll();
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Padding(
-          padding: EdgeInsets.all(16),
-          child: ListView(children: [buildContainer(), buildContainer2()]),
-        ),
+        backgroundColor: Colors.purple,
+        body: buildContainer(),
       ),
     );
   }
@@ -60,51 +87,6 @@ class _TelaInicialState extends State<TelaInicial> {
           ),
         ],
       ),
-    );
-  }
-
-  buildContainer2() {
-    return Container(
-      color: Colors.white,
-      padding: EdgeInsets.all(50),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
-          onPressed: () {
-
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => TelaDeLogin(),
-              ),
-            );
-          },
-          child: Text(
-            'Entrar',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-            ),
-          ),
-        ),
-        SizedBox(height: 20),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => Tela_Cadastro(),
-              ),
-            );
-          },
-          child: Text(
-            'Cadastrar',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-            ),
-          ),
-        ),
-      ]),
     );
   }
 }
