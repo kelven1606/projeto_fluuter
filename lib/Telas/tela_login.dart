@@ -111,6 +111,17 @@ class _TelaPrinciaplState extends State<TelaDeLogin> {
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
+              SizedBox(height: 60),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+                onPressed: () {
+                  onPressed();
+                },
+                child: Text(
+                  'Entrar',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
             ],
           ),
         ),
