@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:libras2/Db/Banco.dart';
+import 'package:libras2/Db/Shared_prefs.dart';
 import 'package:libras2/Telas/Tela_Cadastro.dart';
 import '../Db/CadastroDao.dart';
 import 'TelaPrincipal2.dart';
@@ -9,10 +11,12 @@ class TelaDeLogin extends StatefulWidget {
 }
 
 class _TelaPrinciaplState extends State<TelaDeLogin> {
+  Banco b = Banco();
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    b.banco();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -111,14 +115,15 @@ class _TelaPrinciaplState extends State<TelaDeLogin> {
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
-              SizedBox(height: 60),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
                 onPressed: () {
-                  onPressed();
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Tela_Cadastro();
+                  }));
                 },
                 child: Text(
-                  'Entrar',
+                  'Cadastre-se',
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
@@ -136,6 +141,7 @@ class _TelaPrinciaplState extends State<TelaDeLogin> {
     bool result =
         await CadastroDao().autenticar(user: user, password: password);
     if (result) {
+      await SharedPrefs().setUser(true);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(

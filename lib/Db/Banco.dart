@@ -8,7 +8,7 @@ import '../domain/Imagens.dart';
 class Banco {
   banco() async {
     final CaminhoBanco = await getDatabasesPath();
-    final localbanco = join(CaminhoBanco, "Banco_libras10.db");
+    final localbanco = join(CaminhoBanco, "Banco_libras20.db");
 
     Database db = await openDatabase(
       localbanco,

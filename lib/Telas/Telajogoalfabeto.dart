@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:libras2/Db/JogoalfabetoDAO.dart';
+import 'package:libras2/Db/Shared_prefs.dart';
 import 'package:libras2/domain/jogoalfabetoJson.dart';
 
 import '../widget/jogoalfabeto.dart';
@@ -14,11 +13,12 @@ class Telajogoalfabeto extends StatefulWidget {
 }
 
 class _TelajogoalfabetoState extends State<Telajogoalfabeto> {
+  int cont = 0;
   @override
   Widget build(BuildContext context) {
-    int cont = 1;
+    //
     Future<List<jogoalfabetoJson>> futureLista =
-        JogoalfabetoDAO().alfabeto(id: cont);
+        JogoalfabetoDAO().alfabeto(id: pegarId());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
@@ -44,5 +44,9 @@ class _TelajogoalfabetoState extends State<Telajogoalfabeto> {
         },
       ),
     );
+  }
+
+  pegarId() {
+    return (SharedPrefsId.id);
   }
 }

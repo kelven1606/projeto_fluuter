@@ -1,11 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:libras2/Telas/tela_login.dart';
 import 'package:libras2/domain/Cadastros.dart';
 
 import '../Db/CadastroDao.dart';
-import 'TelaPrincipal.dart';
 
 class Tela_Cadastro extends StatefulWidget {
   Tela_Cadastro({super.key});

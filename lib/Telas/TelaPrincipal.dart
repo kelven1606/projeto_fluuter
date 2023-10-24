@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:libras2/Telas/tela_login.dart';
 
+import '../Db/Shared_prefs.dart';
 import '../Db/TelaPrincipalDao.dart';
 import '../domain/Principal.dart';
 import '../widget/BuildbodyPrincipal.dart';
@@ -19,7 +21,26 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.purple,
-          title: Text("Home"),
+          title: const Text("Home"),
+          actions: [
+            IconButton(
+              onPressed: () {
+                SharedPrefs().setUser(false);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return TelaDeLogin();
+                    },
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.logout,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
         body: FutureBuilder<List<Principal>>(
             future: futureLista,

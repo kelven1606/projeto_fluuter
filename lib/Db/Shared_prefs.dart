@@ -15,3 +15,7 @@ class SharedPrefs {
     return userStatus;
   }
 }
+
+class SharedPrefsId {
+  static int id = 0;
+}

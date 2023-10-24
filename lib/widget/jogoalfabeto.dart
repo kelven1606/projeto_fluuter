@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:libras2/Db/Shared_prefs.dart';
 import 'package:libras2/domain/jogoalfabetoJson.dart';
 
 class jogoalfabeto extends StatefulWidget {
@@ -8,13 +9,14 @@ class jogoalfabeto extends StatefulWidget {
   @override
   State<jogoalfabeto> createState() => _jogoalfabetoState();
 
-  jogoalfabeto.tal(this.jogo) {}
+  // ignore: use_key_in_widget_constructors, empty_constructor_bodies
 }
 
+// ignore: camel_case_types
 class _jogoalfabetoState extends State<jogoalfabeto> {
   jogoalfabetoJson get j => widget.jogo;
-  @override
   int cont = 1;
+  @override
   Widget build(BuildContext context) {
     return buildjogoalfabeto();
   }
@@ -23,6 +25,7 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
     setState(() {
       if (cont < 10) {
         cont++;
+        SharedPrefsId.id = cont;
       }
     });
     return cont;
