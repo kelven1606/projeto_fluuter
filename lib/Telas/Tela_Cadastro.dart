@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:libras2/domain/Cadastros.dart';
-
 import '../Db/CadastroDao.dart';
+import '../Db/address_api.dart';
+import '../domain/address.dart';
 
 class Tela_Cadastro extends StatefulWidget {
   Tela_Cadastro({super.key});
@@ -19,6 +20,8 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
   TextEditingController nomeController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
   TextEditingController senha2Controller = TextEditingController();
+  TextEditingController cepController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
   //Future<List<Cadastros>> futureLista = CadastroDao().findAll();
 
@@ -115,7 +118,7 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
                 borderSide:
                     BorderSide(style: BorderStyle.solid, color: Colors.purple),
               ),
-              labelText: "email",
+              labelText: "Email",
               prefixIcon: Padding(
                 child: Icon(Icons.email, color: Colors.purple),
                 padding: EdgeInsets.all(5),
@@ -212,6 +215,29 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
           style: TextStyle(fontSize: 20),
           controller: senha2Controller,
         ),
+         const SizedBox(height: 16),
+        Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: cepController,
+                      decoration: const InputDecoration(
+                        hintText: 'CEP',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  IconButton(onPressed: cepOnPressed, icon: Icon(Icons.search))
+                ],
+              ),
+        const SizedBox(height: 16),
+              TextField(
+                controller: addressController,
+                decoration: const InputDecoration(
+                  hintText: 'Endereço',
+                  border: OutlineInputBorder(),
+                ),
+              ),
         SizedBox(height: 60),
         ElevatedButton(
           style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
@@ -227,6 +253,42 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
       ],
     );
   }
+
+  Future<void> cepOnPressed() async {
+    String cep = cepController.text;
+
+    showLoadingDialog();
+    await Future.delayed(const Duration(seconds: 3));
+    Address? address = await AddressApi().findAddressByCep(cep);
+    if (address != null) {
+      addressController.text = '${address.street} - ${address.city}';
+    } else {
+      addressController.text = '';
+      showSnackBar('Endereço não encontrado');
+    }
+
+    Navigator.pop(context);
+  }
+
+  showLoadingDialog() {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return const AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Center(child: CircularProgressIndicator()),
+              SizedBox(height: 16),
+              Text('Carregando Endereço...')
+            ],
+          ),
+        );
+      },
+    );
+  }
+
 
   Future<void> onpressed() async {
     String email = emailController.text;
@@ -252,5 +314,13 @@ class _Tela_CadastroState extends State<Tela_Cadastro> {
       ScaffoldMessenger.of(context).showSnackBar(snackBar2);
       print("dados incompletos");
     }
+  }
+
+    void showSnackBar(String message) {
+    final snackBar = SnackBar(
+      content: Text(message),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
