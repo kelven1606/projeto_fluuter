@@ -39,6 +39,7 @@ dependencies:
   path:
   shared_preferences:
   http: ^1.1.0
+  flutter_bloc:
   
 dev_dependencies:
   flutter_test:

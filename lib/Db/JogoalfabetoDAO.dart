@@ -15,19 +15,16 @@ class JogoalfabetoDAO {
     print('$resultSet');
   }
 
-  Future<List<jogoalfabetoJson>> alfabeto({required int id}) async {
+  Future<jogoalfabetoJson> alfabeto({required int id}) async {
     Banco banco = Banco();
     Database db = await Banco().banco();
 
     String sql = 'SELECT * FROM JOGO_ALFABETO WHERE ID = ?;';
     final resultSet = await db.rawQuery(sql, [id]);
+    print(resultSet);
 
-    List<jogoalfabetoJson> list = [];
-    for (var json in resultSet) {
-      jogoalfabetoJson pacote = jogoalfabetoJson.fromJson(json);
-      list.add(pacote);
-    }
-    return list;
+    return jogoalfabetoJson.fromJson(resultSet[0]);     
+
   }
 }
 

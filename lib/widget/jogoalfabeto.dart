@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:libras2/Db/Shared_prefs.dart';
+import 'package:libras2/Telas/bloc/jogo_cubit.dart';
 import 'package:libras2/domain/jogoalfabetoJson.dart';
 
 class jogoalfabeto extends StatefulWidget {
@@ -15,33 +17,36 @@ class jogoalfabeto extends StatefulWidget {
 // ignore: camel_case_types
 class _jogoalfabetoState extends State<jogoalfabeto> {
   jogoalfabetoJson get j => widget.jogo;
-  int cont = 1;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return buildjogoalfabeto();
   }
 
-  int incrementcont() {
-    setState(() {
-      if (cont < 10) {
-        cont++;
-        SharedPrefsId.id = cont;
-      }
-    });
-    return cont;
+  incrementcont() {
+    context.read<JogoCubit>().increment();
   }
 
   buildjogoalfabeto() {
     return Container(
-      child: Column(
+      child: ListView(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text(
-                  "Pergunta $cont de 10",
+                child: BlocBuilder<JogoCubit, int>(
+                  builder: (context, index) {
+                    return Text(
+                      "Pergunta $index de 10",
+                    );
+                  },
                 ),
               ),
             ],
