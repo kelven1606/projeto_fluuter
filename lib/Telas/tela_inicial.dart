@@ -46,8 +46,9 @@ class _TelaInicialState extends State<TelaInicial> {
   void initState() {
     super.initState();
     checkUserStatus();
-    JogoalfabetoDAO().findall;
+    JogoalfabetoDAO().findall();
     PerfisDao().findAll();
+    Banco().banco();
   }
 
   @override

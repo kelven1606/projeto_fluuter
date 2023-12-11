@@ -31,20 +31,20 @@ class _TelaJogoState extends State<TelaJogo> {
                   padding: EdgeInsetsDirectional.only(start: 50),
                 ),
                 child:
-                    Text("Fase 1: \nAlfabeto", style: TextStyle(fontSize: 20)),
+                    Text("Fase 1: \nAlfabeto", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black)),
               ),
               Container(),
               Container(),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
+                    backgroundColor: const Color.fromARGB(255, 197, 35, 226),
                     shape: CircleBorder(),
                     padding: EdgeInsetsDirectional.only(start: 50),
                   ),
                   onPressed: () {},
                   child: Text(
                     "Fase 2: \nNúmeros",
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   )),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -55,7 +55,7 @@ class _TelaJogoState extends State<TelaJogo> {
                 onPressed: () {},
                 child: Text(
                   'Fase 3: frases',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
               Container(),
@@ -69,7 +69,7 @@ class _TelaJogoState extends State<TelaJogo> {
                 onPressed: () {},
                 child: Text(
                   'Fase 4: Gestos',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
@@ -81,7 +81,7 @@ class _TelaJogoState extends State<TelaJogo> {
         backgroundColor: Colors.purple,
         title: Text(
           "COLOCANDO EM PRÁTICA...",
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
         ),
       ),
     );

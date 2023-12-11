@@ -135,6 +135,9 @@ flutter:
     - assets/image/leao.jpg
     - assets/image/borboleta.jpg
     - assets/image/perfil.jpg
+    - assets/image/gostar.png
+    - assets/image/erro.png
+    - assets/image/usr.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

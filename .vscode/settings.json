@@ -1,4 +1,5 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
-    "cmake.sourceDirectory": "C:/Users/kelven/OneDrive/Documentos/vsProjects/libras2/linux"
+    "cmake.sourceDirectory": "C:/Users/kelven/OneDrive/Documentos/vsProjects/libras2/linux",
+    "editor.wordBasedSuggestions": "matchingDocuments"
 }
