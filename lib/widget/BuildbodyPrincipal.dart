@@ -57,7 +57,7 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
               },
               label: Text(
                 p.label1,
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18,color: Colors.black)
               )),
           SizedBox(
             height: 30,
@@ -71,7 +71,7 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
             onPressed: () {},
             label: Text(
               p.label2,
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18,color: Colors.black),
             ),
           ),
           SizedBox(
@@ -86,7 +86,7 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
             onPressed: () {},
             label: Text(
               p.label3,
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18,color: Colors.black),
             ),
           ),
           SizedBox(
@@ -101,7 +101,7 @@ class _BuildBodyPrincipalState extends State<BuildBodyPrincipal> {
             label: Text(
               p.label4,
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 18,color: Colors.black
               ),
             ),
             onPressed: () {

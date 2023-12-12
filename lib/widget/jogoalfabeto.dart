@@ -67,17 +67,17 @@ class _jogoalfabetoState extends State<jogoalfabeto> {
                 children: [
                   Image.asset("assets/image/gostar.png"),
                   BlocBuilder<acertos_cubit, int>(builder: (context, index) {
-                    return Text("Acertos: $index");
+                    return Text(" Acertos: $index");
                   }),
                   SizedBox(width: 10),
                   Image.asset("assets/image/erro.png"),
                   BlocBuilder<erro_cubit, int>(builder: (context, index) {
-                    return Text("erros: $index");
+                    return Text(" erros: $index");
                   }),
                     SizedBox(width: 10),
                   Image.asset("assets/image/usr.png"),
                   BlocBuilder<JogoCubit, int>(builder: (context, index) {
-                    return Text("Total: ${index - 1}");
+                    return Text(" Total: ${index - 1}");
                   }),
                 ],
               )

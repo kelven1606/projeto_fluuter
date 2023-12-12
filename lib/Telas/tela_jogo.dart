@@ -44,7 +44,7 @@ class _TelaJogoState extends State<TelaJogo> {
                   onPressed: () {},
                   child: Text(
                     "Fase 2: \nNúmeros",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),
                   )),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -55,7 +55,7 @@ class _TelaJogoState extends State<TelaJogo> {
                 onPressed: () {},
                 child: Text(
                   'Fase 3: frases',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color:Colors.black),
                 ),
               ),
               Container(),
@@ -69,7 +69,7 @@ class _TelaJogoState extends State<TelaJogo> {
                 onPressed: () {},
                 child: Text(
                   'Fase 4: Gestos',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color:Colors.black),
                 ),
               ),
             ],
